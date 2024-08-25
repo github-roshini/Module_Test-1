@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="game.css">
+    <link rel="icon" href="icon.jpg" type="image/x-icon">
+</head>
+<body>
+    <div class="main">
+   <div id="header" class="header">
+    <h2>ROCK<br>PAPER<br>SCISSORS</h1>
+        <div id="box1">COMPUTER SCORE
+            <h1 id="lossCount">0</h1>
+        </div>
+        <div id="box2">YOUR SCORE
+            <h1 id="winCount">0</h1>
+        </div>
+   </div>
+
+       
+<div id="icons" class="icons">
+    <button id="scissors" class="button" onclick="play('scissors')">
+        <img src="scissors.png">
+    </button>
+    <div id="line" class="line1"></div>
+    <button id="paper" class="button" onclick="play('paper')">
+    <img src="icons8-hand-64 1.png">
+    </button>
+    <div id="line2" class="line2"></div>
+    <button id="rock" class="button" onclick="play('rock')" >
+        <img src="icons8-fist-67 1.png">
+    </button>
+    <div id="line3" class="line3"></div>
+</div>
+    <button id="playAgainButton" class="button" onclick="resetGame()" style="display: none;">Play Again</button>
+    <div id="result" class="result-message"></div>
+
+       
+            <!--Rules Popup  -->
+         <div class="rules popup" id="popup">
+            <div class="popup-close" onclick="closePopup()">&times;</div>
+            <div class="popup-content">
+             <h2 id="title">Game Rules</h2>
+            <ul style="
+            list-style-type:square;">
+                <li>Rock beats scissors, scissors beat paper, and paper beats rock. </li><br>
+                <li>Agree ahead of time whether you'll count off "rock, paper, scissors, shoot" or just "rock, paper, scissors."</li><br>
+                <li>Use rock, paper, scissors to settle minor decisions or simply play yo pass the time</li>
+                <br>
+                <li>If both players lay down the same hand, each player lays down another hand</li>
+        
+                </ul>
+            </div>
+           </div>
+
+           <div class="navBtn">
+            <button id="rule" class="Rules open-popup-button" onclick="openPopup()">RULES</button>
+            <button id="next" class="Rules nextButton" style="display: none;" onclick="navToNextPage()">Next</button>
+  
+           
+               
+           </div>
+   
+</div>
+</body>
+
+<script>
+    let winCount = 0;
+    let lossCount = 0;
+
+    function play(userChoice) {
+        const choices = ['rock', 'paper', 'scissors'];
+        const computerChoice = choices[Math.floor(Math.random() * 3)];
+        let resultHTML = '';
+        let userChoiceHtml ='';
+        let computerChoiceHtml ='';
+
+        if(userChoice ==  'rock'){
+            userChoiceHtml = '<img class="rock" src="icons8-fist-67 1.png">';
+        } else if(userChoice === 'paper'){
+            userChoiceHtml = '<img  class="paper" src="icons8-hand-64 1.png">';
+        } else {
+            userChoiceHtml = '<img class="scissors" src="scissors.png">';
+        }
+
+        if(computerChoice ==  'rock'){
+            computerChoiceHtml = '<img class="rock" src="icons8-fist-67 1.png">';
+        } else if(computerChoice === 'paper'){
+            computerChoiceHtml = '<img class="paper" src="icons8-hand-64 1.png">';
+        } else {
+            computerChoiceHtml = '<img class="scissors" src="scissors.png">';
+        }
+        resultHTML += `<div style="display: flex;margin-left: 100px;padding: 50px;"><div style="width: 30%">YOU PICKED:<br> ${userChoiceHtml}</div>`;
+
+        if (userChoice === computerChoice) {
+            resultHTML += `<div style="width: 30%"><h2>TIE UP!</h2>`;
+                document.getElementById('next').style.display = 'none';    
+                document.getElementById('rule').style.marginRight = '0px';  
+        } else if (
+            (userChoice === 'rock' && computerChoice === 'scissors') ||
+            (userChoice === 'paper' && computerChoice === 'rock') ||
+            (userChoice === 'scissors' && computerChoice === 'paper')
+        ) {
+            resultHTML += `<div style="width: 30%"><h2>YOU WIN</h2> <h3>AGAINST PC</h3><br>`;
+                document.getElementById('next').style.display = 'block';  
+                document.getElementById('rule').style.marginRight = '13%';                
+              
+            winCount++;
+        } else {
+            resultHTML += `<div style="width: 30%"><h2>YOU LOST</h2> <h3>AGAINST PC</h3><br>`
+                document.getElementById('next').style.display = 'none';    
+                document.getElementById('rule').style.marginRight = '0px';                
+            
+            // <button id="playAgainButton" class="button" onclick="resetGame()" style="display: none;">Play Again</button>`;
+            lossCount++;
+        }
+         resultHTML += `<button id="playAgainButton" class="button playAgain" onclick="resetGame()">Play Again</button>`
+        resultHTML += `</div><div style="width: 30%">PC PICKED:<br> ${computerChoiceHtml}</div></div>`;
+
+
+        // Disable game buttons and show the "Play Again" button
+        document.getElementById('rock').disabled = true;
+        document.getElementById('paper').disabled = true;
+        document.getElementById('scissors').disabled = true;
+        document.getElementById('line').style.display = 'none';
+        document.getElementById('line2').style.display = 'none';
+        document.getElementById('line3').style.display = 'none';
+
+        // document.getElementById('playAgainButton').style.display = 'inline-block';
+        document.getElementById('icons').style.display = 'none';
+
+        // Display the result with HTML content
+        document.getElementById('result').innerHTML = resultHTML;
+        updateCounters();
+        if(winCount == 15|| lossCount == 15){
+            window.location.href = 'index.html';
+        }
+    }
+
+          // Function to navigate to next page
+          function navToNextPage(){
+              // Disable game buttons and show the "Play Again" button
+        document.getElementById('rock').disabled = true;
+        document.getElementById('paper').disabled = true;
+        document.getElementById('scissors').disabled = true;
+        document.getElementById('line').style.display = 'none';
+        document.getElementById('line2').style.display = 'none';
+        document.getElementById('line3').style.display = 'none';
+        document.getElementById('header').style.display = 'none';
+
+        document.getElementById('result').innerHTML = '';
+
+      //  document.getElementById('result').innerHTML = resultHTML;
+        window.location.href = 'Hurray.html';
+
+
+        }
+    function resetGame() {
+        // Enable game buttons and hide the "Play Again" button
+        document.getElementById('rock').disabled = false;
+        document.getElementById('paper').disabled = false;
+        document.getElementById('scissors').disabled = false;
+        document.getElementById('line').style.display = 'block';        
+        document.getElementById('line2').style.display = 'block';
+        document.getElementById('line3').style.display = 'block';
+        document.getElementById('playAgainButton').style.display = 'none';
+        document.getElementById('icons').style.display = 'block';
+
+        // Clear the result
+        document.getElementById('result').innerHTML = '';
+        userChoiceHtml ='';
+    }
+
+    function updateCounters() {
+        document.getElementById('winCount').textContent = winCount;
+        document.getElementById('lossCount').textContent = lossCount;
+    }
+
+
+
+    //Rules Popup
+       // Function to open the popup
+       function openPopup() {
+            const button = document.querySelector('.open-popup-button');
+            const popup = document.getElementById('popup');
+            // const overlay = document.getElementById('popup-overlay');
+
+            // Position the popup directly above the button
+            const buttonRect = button.getBoundingClientRect();
+            popup.style.top = `${buttonRect.top - popup.offsetHeight}px`;
+            popup.style.left = `${buttonRect.left}px`;
+
+            // Show the popup and overlay
+            popup.style.display = 'block';
+            // overlay.style.display = 'block';
+        }
+
+  
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            // document.getElementById('popup-overlay').style.display = 'none';
+        }
+</script>
+</html>

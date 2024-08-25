@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winner</title>
+    <style>
+       body{
+    background-color: #8CC461;
+    color:white;
+}
+
+.header{
+   
+        display: flex;
+        display: block;
+        margin-left:auto;
+        margin-right: auto;
+        flex-wrap: wrap;
+        flex: 50%;
+        padding:20px;
+        text-align: left;
+        justify-content: left;
+
+        /* .flex-item-left {
+            background-color: #f1f1f1;
+            padding: 10px;
+            flex: 50%;
+          } */
+      
+}
+
+
+
+div{
+  background-color: #8CC461;
+  width: 800px;
+  height: 120px;
+  top: 62px;
+  left: 240px;
+  gap: 0px;
+  border: 2px solid;
+  border-radius: 13px;
+  opacity: 0px;
+  padding: 10px;
+  margin: 10px;
+  /* width: 800px;
+height: 158px;
+top: 62px;
+left: 240px;
+gap: 0px;
+border-radius: 13px 0px 0px 0px;
+border: 2px 0px 0px 0px;
+opacity: 0px; */
+}
+
+#box1{
+    display:flex;
+    grid:display;
+    width: 110px;
+height: 110px;
+top: 77px;
+left: 813px;
+gap: 0px;
+border-radius: 9px;
+opacity: 0px;
+background-color: white;
+color: #656565;
+border: 2px solid white;
+margin-left:400px;
+margin-top: -130px;
+text-align: center;
+
+
+
+
+
+
+}
+#box2{
+    display:flex;
+    width: 110px;
+height: 110px;
+top: 77px;
+left: 713px;
+gap: 0px;
+border-radius: 9px;
+opacity: 0px;
+background-color: white;
+color: #656565;
+border: 2px solid white;
+margin-left:600px;
+text-align: center;
+margin-top: -140px;
+
+
+}
+
+#rock{
+    
+
+    border: 16px solid #0074B6;
+    
+position:absolute;
+   
+
+   width: 140px;
+height: 140px;
+top: 415px;
+left: 1000px;
+gap: 0px;
+opacity: 0px;
+border-radius: 70px;
+cursor:pointer;
+}
+
+#rock:hover{
+    background-color: palevioletred;;
+}
+
+#rocks{
+    
+    border: 16px solid #0074B6;
+   
+
+
+width: 140px;
+height: 140px;
+top: 415px;
+left: 523px;
+gap: 0px;
+opacity: 0px;
+position:absolute;
+border-radius: 70px;
+cursor:pointer;
+transition: background-color 0.5s ease;
+
+
+    
+
+
+}
+#rocks:hover{
+    background-color: palevioletred;;
+}
+
+
+
+#Rules{
+    color: white;
+        background-color: transparent;
+        padding: 0.5% 1%;
+        font-size: 1.2vw;
+        border: 0.2vw solid white;
+        border-radius: 0.5vw;
+        position: absolute;
+        top: 90%;
+        right: 3%;
+        cursor:pointer;
+
+        
+
+
+       
+}
+#Rules:hover{
+    background-color: orange;
+}
+
+#button{ 
+      
+        
+        border: 5px solid white;
+        display:block;
+        
+        
+        font-family: Arial, Helvetica, sans-serif;
+
+       
+width: 174px;
+height: 44px;
+
+gap: 0px;
+border-radius: 9px;
+opacity: 0px;
+
+margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor:pointer;
+
+}
+
+
+h3{
+
+    text-align: center;
+    font-weight: 800px;
+    top:-60%;
+    left:50%;
+    
+
+
+
+}
+h1{
+    text-align: center;
+    font-weight: 800px;
+ 
+
+    top: 515px;
+left: 830px;
+
+}
+
+p{
+    color: white;
+    /* top: 30%;
+    left: 20%; */
+    font-weight: 600px;
+    font-size: 17px;
+    text-align: center;
+
+   
+top: 315px;
+left: 553px;
+gap: 0px;
+opacity: 0px;
+
+position:absolute;
+
+
+
+
+}
+.pc{
+
+    color: white;
+    /* top: 30%;
+    left: 20%; */
+    font-weight: 600px;
+    font-size: 17px;
+    text-align: center;
+
+   
+top: 315px;
+left: 1030px;
+gap: 0px;
+opacity: 0px;
+
+position:absolute;
+
+
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>ROCK<br>PAPER<br>SCISSORS</h1>
+            <div id="box1">COMPUTER SCORE</div>
+            <div id="box2">YOUR SCORE</div>
+       </div>
+
+       
+        <button id="Rules" onclick="">RULES</button>
+        
+        <button id="button" onclick="">REPLAY</button>
+        
+       
+            <button id="rock" onclick="">
+                <img src="icons8-fist-67 1.png">
+            </button>
+            <button id="rocks" onclick="">
+            <img src="icons8-fist-67 1.png">
+            </button>
+            
+            
+                <h1>YOU LOST</h1>
+                <h3>AGAINST PC</h3>
+
+
+                
+                    <p>YOU PICKED</p>
+                
+               
+                    <p class="pc">PC PICKED</p>
+                    
+           
+            
+           
+    
+</body>
+</html>

@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game.css">
+    <title>Congrats..</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #89C15E;
+                color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    .title {
+        position: absolute;
+        margin-top: 250px;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3em;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .cracker-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .cracker {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.8);
+        animation: burst 1s ease-out infinite;
+    }
+
+    @keyframes burst {
+        0% {
+            width: 0;
+            height: 0;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            width: 80px;
+            height: 80px;
+            opacity: 0.5;
+            transform: translateY(-50px) scale(1.5);
+        }
+        100% {
+            width: 0;
+            height: 0;
+            opacity: 0;
+            transform: translateY(-100px) scale(2);
+        }
+    }
+
+    /* Different colors and random positions for crackers */
+    .cracker:nth-child(1) {
+        background: rgba(255, 69, 0, 0.9);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+    .cracker:nth-child(2) {
+        background: rgba(255, 223, 0, 0.9);
+        top: 40%;
+        left: 30%;
+        animation-delay: 0.5s;
+    }
+    .cracker:nth-child(3) {
+        background: rgba(0, 255, 255, 0.9);
+        top: 60%;
+        left: 50%;
+        animation-delay: 1s;
+    }
+    .cracker:nth-child(4) {
+        background: rgba(0, 255, 0, 0.9);
+        top: 30%;
+        left: 70%;
+        animation-delay: 1.5s;
+    }
+    .cracker:nth-child(5) {
+        background: rgba(255, 105, 180, 0.9);
+        top: 80%;
+        left: 20%;
+        animation-delay: 2s;
+    }
+
+    .cracker:nth-child(6) {
+        background: rgba(255, 105, 180, 0.9);
+        top: 40%;
+        left: 80%;
+        animation-delay: 2.5s;
+    }
+
+    .cracker:nth-child(7) {
+        background: rgba(0, 0, 255, 0.9);
+        top: 70%;
+        left: 60%;
+        animation-delay: 3s;
+    }
+</style>
+<body>
+    <div class="cracker-container">
+        <!-- Multiple cracker elements -->
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+        <div class="cracker"></div>
+    </div>
+    <img class="cup" src="Vector.png">
+    <div class="title">
+    <h2 class="h2">HURRAY!!</h2>
+    <h4 class="h4">YOU WON THE GAME</h4>
+    <button id="playAgainButton" class="button playAgain" onclick="resetGame()">Play Again</button>
+  
+    </div>
+    <div class="navBtn" style="margin-right: 0px !important;">
+        <button class="Rules open-popup-button" onclick="openPopup()">RULES</button>
+       </div>
+
+          <!--Rules Popup  -->
+          <div class="rules popup" id="popup">
+            <div class="popup-close" onclick="closePopup()">&times;</div>
+            <div class="popup-content">
+             <h2 id="title">Game Rules</h2>
+            <ul style="
+            list-style-type:square;">
+                <li>Rock beats scissors, scissors beat paper, and paper beats rock. </li><br>
+                <li>Agree ahead of time whether you'll count off "rock, paper, scissors, shoot" or just "rock, paper, scissors."</li><br>
+                <li>Use rock, paper, scissors to settle minor decisions or simply play yo pass the time</li>
+                <br>
+                <li>If both players lay down the same hand, each player lays down another hand</li>
+        
+                </ul>
+            </div>
+           </div>
+</body>
+<script>
+      function openPopup() {
+            const button = document.querySelector('.open-popup-button');
+            const popup = document.getElementById('popup');
+            // const overlay = document.getElementById('popup-overlay');
+
+            // Position the popup directly above the button
+            const buttonRect = button.getBoundingClientRect();
+            popup.style.top = `${buttonRect.top - popup.offsetHeight}px`;
+            popup.style.left = `${buttonRect.left}px`;
+
+            // Show the popup and overlay
+            popup.style.display = 'block';
+            // overlay.style.display = 'block';
+        }
+     // Function to close the popup
+     function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+         
+            // document.getElementById('popup-overlay').style.display = 'none';
+        }
+
+        function resetGame(){
+            window.location.href = 'index.html';
+        }
+</script>
+</html>
