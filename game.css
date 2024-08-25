@@ -123,13 +123,16 @@ opacity: 0px; */
     top: 90%;
     right: 3%;
 }
+.Rules:hover{
+    background-color: palevioletred;
+}
 
 
 #rock {
     width: 110px;
     height: 110px;
     border-radius: 55px;
-    border: 16px solid #0074B6;
+    border: 10px solid #0074B6;
     position: absolute;
     background: white;
     top: 329px;
@@ -143,7 +146,7 @@ opacity: 0px; */
     width: 110px;
     height: 110px;
     border-radius: 55px;
-    border: 16px solid #BD00FF;
+    border: 10px solid #BD00FF;
     position: absolute;
     top: 329px;
     left: 713px;
@@ -157,7 +160,7 @@ opacity: 0px; */
     width: 110px;
     height: 110px;
     border-radius: 55px;
-    border: 16px solid #FFA943;
+    border: 10px solid #FFA943;
     position: absolute;
     top: 7%;
     right: 18%;
@@ -370,6 +373,9 @@ img {
     margin-right: 15px;
     width: 100px;
 }
+.nextButton:hover{
+    background-color: #FFA943;
+}
 /* Rules Popup */
 
     /* Basic styles for the button */
@@ -425,7 +431,9 @@ img {
         color: #fff;
         text-align: center;
         line-height: 20px;
-        border-radius: 50%;
+        border-radius: 30px;
+        border:5px solid white;
+        font-size:23px;
         cursor: pointer;
         font-weight: bold;
         /* float: right; */
@@ -444,6 +452,8 @@ img {
     border-radius: 10px;
     border: 1px solid white;
     }
+    .playAgain:hover{
+        background-color: aqua;
 
     .icons{
 
