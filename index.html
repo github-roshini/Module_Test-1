@@ -92,7 +92,7 @@
         } else {
             computerChoiceHtml = '<img class="scissors" src="scissors.png">';
         }
-        resultHTML += `<div style="display: flex;margin-left: 100px;padding: 50px;"><div style="width: 30%">YOU PICKED:<br> ${userChoiceHtml}</div>`;
+        resultHTML += `<div style="display: flex;margin-left: 100px;padding: 50px;"><div style="width: 30%">YOU PICKED:<br><br> <br> ${userChoiceHtml}</div>`;
 
         if (userChoice === computerChoice) {
             resultHTML += `<div style="width: 30%"><h2>TIE UP!</h2>`;
@@ -103,13 +103,22 @@
             (userChoice === 'paper' && computerChoice === 'rock') ||
             (userChoice === 'scissors' && computerChoice === 'paper')
         ) {
-            resultHTML += `<div style="width: 30%"><h2>YOU WIN</h2> <h3>AGAINST PC</h3><br>`;
+            resultHTML += `<div style="width: 30%;"> <div class="winCircle">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+     <h2>YOU WIN</h2> <h3>AGAINST PC</h3><br>`;
                 document.getElementById('next').style.display = 'block';  
                 document.getElementById('rule').style.marginRight = '13%';                
               
             winCount++;
         } else {
-            resultHTML += `<div style="width: 30%"><h2>YOU LOST</h2> <h3>AGAINST PC</h3><br>`
+            resultHTML += `<div style="width: 30%"><div class="lostCircle">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div><h2>YOU LOST</h2> <h3>AGAINST PC</h3><br>`
                 document.getElementById('next').style.display = 'none';    
                 document.getElementById('rule').style.marginRight = '0px';                
             
@@ -117,7 +126,8 @@
             lossCount++;
         }
          resultHTML += `<button id="playAgainButton" class="button playAgain" onclick="resetGame()">Play Again</button>`
-        resultHTML += `</div><div style="width: 30%">PC PICKED:<br> ${computerChoiceHtml}</div></div>`;
+         
+        resultHTML += `</div><div style="width: 30%">PC PICKED:<br><br><br> ${computerChoiceHtml}</div></div>`;
 
 
         // Disable game buttons and show the "Play Again" button
