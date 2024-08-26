@@ -324,15 +324,15 @@ border-radius:60px 2px 0px 60px;
 }
 
 .rock {
-    border: 16px solid #0074B6;
+    border: 10px solid #0074B6;
 }
 
 .paper {
-    border: 16px solid #BD00FF;
+    border: 10px solid #BD00FF;
 }
 
 .scissors {
-    border: 16px solid #FFA943;
+    border: 10px solid #FFA943;
 }
 
 .result-message {
@@ -433,7 +433,7 @@ img {
         line-height: 20px;
         border-radius: 30px;
         border:5px solid white;
-        font-size:23px;
+        font-size:26px;
         cursor: pointer;
         font-weight: bold;
         /* float: right; */
